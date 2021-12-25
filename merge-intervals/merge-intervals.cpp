@@ -5,14 +5,13 @@ public:
         for(int i=0;i<in.size();i++){
             for(int j=0;j<in[i].size()-1;j++){
                 v.push_back({in[i][j],in[i][j+1]});
-                // cout<<in[i][j]<<" "<<in[i][j+1];
             }
         }
         sort(v.begin(),v.end());
+        
         stack<pair<int,int>>s;
         s.push({v[0].first,v[0].second});
-        int kk=0;
-        for(int i=1;i<in.size();i++){
+        for(int i=1;i<v.size();i++){
             int s1=s.top().first;
             int e1=s.top().second;
             
@@ -20,7 +19,7 @@ public:
             int e2=v[i].second;
             
             if(e1<s2){
-                s.push({s2,e2});kk++;
+                s.push({s2,e2});
             }
             else{
                 s.pop();
@@ -28,36 +27,19 @@ public:
                 s.push({s1,e1});
             }
         }
-        vector<vector<int>>p;
-        int x=0,y=0;
-        p.resize(s.size());
-        
-//         while(!s.empty()){
-//             //y=0;
-//             cout<<(s.top().first);
-//             cout<<" "<<(s.top().second);
-            
-//             cout<<endl;
-//            // x++;
-//             s.pop();
-//         }
+        // while(!s.empty()){
+        //     cout<<s.top().first<<" "<<s.top().second<<endl;
+        //     s.pop();
+        // }
+        vector<vector<int>>ans;
+        ans.resize(s.size());
+        int i=0;
         while(!s.empty()){
-            y=0;
-            p[x].push_back(s.top().first);
-            p[x].push_back(s.top().second);
-            
-            //cout<<p[x][y]<<" "<<p[x][y+1]<<endl;
-            x++;
+            ans[i].push_back(s.top().first);
+            ans[i].push_back(s.top().second);
+            i++;
             s.pop();
         }
-        sort(p.begin(),p.end());
-        // for(int i=0;i<p.size();i++){
-        //     for(int j=0;j<p[i].size();j++){
-        //         if(p[i][j]>0){
-        //             p.erase(p.begin());
-        //         }
-        //     }
-        // }
-        return p;
+        return ans;
     }
 };
