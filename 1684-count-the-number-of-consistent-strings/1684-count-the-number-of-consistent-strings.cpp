@@ -5,13 +5,12 @@ public:
         for(auto ch:a){
             s.insert(ch);
         }
-        //int f=0;
         int c=0;
         for(auto x:w){
             int f=0;
             for(auto ch:x){
-                const bool is_in = s.find(ch) != s.end();
-                if(is_in){
+               const bool in=s.find(ch)!=s.end();
+                if(in){
                     f=1;
                 }
                 else{
@@ -19,7 +18,9 @@ public:
                     break;
                 }
             }
-            if(f){c++;}
+            if(f){
+                c++;
+            }
         }
         return c;
     }
