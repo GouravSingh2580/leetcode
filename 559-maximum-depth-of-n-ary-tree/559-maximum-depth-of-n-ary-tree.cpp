@@ -25,10 +25,10 @@ public:
         if(root==NULL){
             return 0;
         }
-        int k=1;
+        int k=0;
         for(auto c:root->children){
-            k=max(k,1+maxDepth(c));
+            k=max(k,maxDepth(c));
         }
-        return k;
+        return k+1;
     }
 };
