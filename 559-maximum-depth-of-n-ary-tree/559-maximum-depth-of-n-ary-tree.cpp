@@ -20,14 +20,15 @@ public:
 
 class Solution {
 public:
+    // int k=0;
     int maxDepth(Node* root) {
-        if(root==nullptr){
+        if(root==NULL){
             return 0;
         }
-        int depth=0;
-        for(auto child:root->children){
-            depth=max(depth,maxDepth(child));
+        int k=1;
+        for(auto c:root->children){
+            k=max(k,1+maxDepth(c));
         }
-        return depth+1;
+        return k;
     }
 };
