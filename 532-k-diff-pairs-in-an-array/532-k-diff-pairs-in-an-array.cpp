@@ -1,22 +1,22 @@
 class Solution {
 public:
     int findPairs(vector<int>& nums, int k) {
-        set<pair<int,int>>s;
+        //if(!k) return 
+        map<int,int>mp;
+        for(auto i:nums){
+            mp[i]++;
+        }
         int c=0;
-        int n=nums.size();
-        for(int i=0;i<n;i++)
-        {
-            
-            for(int j=i+1;j<n;j++)
+
+        for(auto i:mp){
+            if(k)
             {
-                if(abs(nums[i]-nums[j])==k){
-                  nums[i] > nums[j] ? s.insert({nums[i],nums[j]}) :             s.insert({nums[j],nums[i]}) ; 
-                
-                //cout<<nums[i]<<" "<<nums[j];
-                }
-                //cout<<'\n';
+                if(mp.count( i.first+k )) c++;
+            }
+            else{
+                if(i.second>1) c++;
             }
         }
-        return s.size();
+        return c;
     }
 };
