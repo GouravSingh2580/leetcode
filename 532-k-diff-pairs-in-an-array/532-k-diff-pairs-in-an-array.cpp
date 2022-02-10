@@ -1,13 +1,11 @@
 class Solution {
 public:
     int findPairs(vector<int>& nums, int k) {
-        //if(!k) return 
-        map<int,int>mp;
+        unordered_map<int,int>mp;
         for(auto i:nums){
             mp[i]++;
         }
         int c=0;
-
         for(auto i:mp){
             if(k)
             {
