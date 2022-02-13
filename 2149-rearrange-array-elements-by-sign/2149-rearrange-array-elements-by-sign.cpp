@@ -1,21 +1,16 @@
 class Solution {
 public:
-    vector<int> rearrangeArray(vector<int>& n) {
-        vector<int>pp;
-        vector<int>nn;
-        for(auto i:n){
-            if(i>=0){
-                pp.push_back(i);
-            }
-            else{
-                nn.push_back(i);
-            }
+    vector<int> rearrangeArray(vector<int>& nums) {
+        vector<int>minus;
+        vector<int>plus;
+        
+        for(int i=0;i<nums.size();i++){
+            nums[i]>0 ? plus.push_back(nums[i]) : minus.push_back(nums[i]);
         }
-        vector<int>z;
-       for(int i=0;i<n.size()/2;i++){
-           z.push_back(pp[i]);
-           z.push_back(nn[i]);
-       }
-        return z;
+        int k=0,kk=0;
+        for(int i=0;i<nums.size();i++){
+            i%2==0 ? nums[i] = plus[k++] : nums[i] = minus[kk++];
+        }
+        return nums;
     }
 };
