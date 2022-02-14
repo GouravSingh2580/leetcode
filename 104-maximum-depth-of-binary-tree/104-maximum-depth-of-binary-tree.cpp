@@ -15,10 +15,6 @@ public:
         if(root==NULL){
             return 0;
         }
-        
-        if(!root->left) return 1+maxDepth(root->right);
-        if(!root->right) return 1+maxDepth(root->left);
-        
         return 1+max(maxDepth(root->right),maxDepth(root->left));
     }
 };
