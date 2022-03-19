@@ -3,15 +3,12 @@ public:
     vector<vector<int>> dp;
     bool knapsack(vector<int>& v, int avg, int n){
         if(dp[n][avg]!=-1) return dp[n][avg];
-        
-        if(avg==0) return dp[n][avg]= true;
-        if(n==0) return dp[n][avg]= false;
-        
+        if(avg==0) return  true;
+        if(n==0) return false;
         if(v[n-1]<=avg) {
             dp[n][avg]=(knapsack(v,avg-v[n-1],n-1) || knapsack(v,avg,n-1));
             return dp[n][avg];
         }
-        
         else {
             dp[n][avg] =knapsack(v,avg,n-1);
             return dp[n][avg];
