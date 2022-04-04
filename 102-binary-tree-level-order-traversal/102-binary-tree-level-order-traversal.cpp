@@ -11,20 +11,20 @@
  */
 class Solution {
 public:
-    vector<vector<int>> v;
-
-    void pre(TreeNode *root, int depth)
-    {
-        if(root == NULL) return;
-        if(v.size() == depth)
-            v.push_back({});
-
-        v[depth].push_back(root->val);
-        pre(root->left, depth + 1);
-        pre(root->right, depth + 1);
-    }
     vector<vector<int>> levelOrder(TreeNode* root) {
-        pre(root,0);
+        if (!root) return {};
+        vector<vector<int>> v;
+        queue<TreeNode*> q; q.push(root);
+        while(!q.empty()){
+            vector<int> tt;
+            for(int i=q.size();i>0; i-- ) {
+                TreeNode* t = q.front(); q.pop();
+                tt.push_back(t->val);
+                if (t->left) q.push(t->left);
+                if (t->right) q.push(t->right);
+            }
+            v.push_back(tt);
+        }
         return v;
     }
 };
