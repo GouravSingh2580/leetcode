@@ -17,8 +17,8 @@ public:
         queue<TreeNode*> q; q.push(root);
         while(!q.empty()){
             vector<int> tt;
-            int size=q.size();
-            for(int i=0;i<size; i++ ) {
+            int size=q.size(); //changing continuously
+            for(int i=0;i<size; i++ ) { // cant put q.size() directly
                 TreeNode* t = q.front(); q.pop();
                 tt.push_back(t->val);
                 if (t->left) q.push(t->left);
