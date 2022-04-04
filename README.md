@@ -1,7 +1,8 @@
 # LeetCode
 Collection of LeetCode questions to ace the coding interview!
 
-<p> Type
+
+ Type
  Name
  Latest commit message
  Commit time
@@ -261,4 +262,3 @@ Collection of LeetCode questions to ace the coding interview!
  Create xorshift128+.c
  Jan 13, 2022
 
-</p>
