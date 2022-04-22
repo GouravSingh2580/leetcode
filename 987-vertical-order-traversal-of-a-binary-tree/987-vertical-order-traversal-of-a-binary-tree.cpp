@@ -36,8 +36,7 @@ public:
                 for(auto k : j.second)
                 {
                     ans.push_back(k);
-                 }
-                
+                 }  
             } 
             //ans.erase(ans.begin(),ans.end());
             res.push_back(ans);
