@@ -1,8 +1,8 @@
 class Solution {
 public:
     int maximumUniqueSubarray(vector<int>& nums) {
-        int curr_sum=0, ans=0;
-        set<int> st;
+        int curr_sum=0, res=0;
+        unordered_set<int> st;
         
         int i=0,j=0;
         while(j<nums.size()) {
@@ -13,8 +13,8 @@ public:
             }
             curr_sum+=nums[j];
             st.insert(nums[j++]);
-            ans = max(ans, curr_sum);
+            res = max(res, curr_sum);
         }
-        return ans;
+        return res;
     }
 };
