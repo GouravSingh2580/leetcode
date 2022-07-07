@@ -9,10 +9,10 @@ public:
         return true;
     }
     bool x=false,y=false;
-    if(i!=s1.length()){
+    if(i<s1.length()){
         if(s1[i]== s3[k]) x=isInterleave_helper(s1,s2,s3,i+1,j,k+1,m);
     }
-       if(j!=s2.length()){
+       if(j<s2.length()){
             if(s2[j]== s3[k]) y=isInterleave_helper(s1,s2,s3,i,j+1,k+1,m);         
        }
     return m[i][j]=x or y;
