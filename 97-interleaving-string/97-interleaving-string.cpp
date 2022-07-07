@@ -13,7 +13,7 @@ public:
     }
     bool isInterleave(string s1,string s2,string s3){
         int a=s1.size(),b=s2.size();
-        vector<vector<int >>m(a+1,vector<int>(b+1,-1));
+        vector<vector<int >>m(101,vector<int>(101,-1));
         return dp(s1,s2,s3,0,0,0,m);
     }
 };
