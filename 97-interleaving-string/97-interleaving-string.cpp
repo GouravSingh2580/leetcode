@@ -1,6 +1,6 @@
 class Solution {
 public:
-    map<string,bool> mp;
+    unordered_map<string,bool> mp;
     bool isInterleave(string s1, string s2, string s3) {
         if(s1.empty() && s2.empty() && s3.empty()) return true;
         if(s3.empty()) return false;
