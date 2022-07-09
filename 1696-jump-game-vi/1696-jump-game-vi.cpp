@@ -2,7 +2,7 @@ class Solution {
 public:
     int dp[100001];
     int dfs(vector<int> &a, int k, int n) {
-        if(dp[n]!=INT_MIN/2) return dp[n];
+        if(dp[n]!=INT_MIN) return dp[n];
         int t=n-1,val=a[n-1];
         for(int i=n-1;i>=max(0,n-k);i--){
             //nonpositve is always the best option
@@ -17,7 +17,7 @@ public:
         return dp[n]=res+a[n];
     }
     int maxResult(vector<int>& a, int k) {
-        for(int i=0;i<100001;i++) dp[i]=INT_MIN/2;
+        for(int i=0;i<100001;i++) dp[i]=INT_MIN;
         dp[0]=a[0];
         return dfs(a,k,a.size()-1);
     }
