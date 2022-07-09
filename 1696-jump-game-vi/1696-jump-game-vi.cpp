@@ -17,7 +17,7 @@ public:
         return dp[n]=res+a[n];
     }
     int maxResult(vector<int>& a, int k) {
-        for(int i=0;i<100001;i++) dp[i]=INT_MIN;
+        for(int i=100000;~i;i--) dp[i]=INT_MIN;
         dp[0]=a[0];
         return dfs(a,k,a.size()-1);
     }
