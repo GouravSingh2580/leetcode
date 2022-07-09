@@ -1,24 +1,15 @@
 class Solution {
 public:
-    int dp[100001];
-    int dfs(vector<int> &a, int k, int n) {
-        if(dp[n]!=INT_MIN) return dp[n];
-        int t=n-1,val=a[n-1];
-        for(int i=n-1;i>=max(0,n-k);i--){
-            //nonpositve is always the best option
-            if(a[i]>=0) return dp[n]=dfs(a,k,i)+a[n];
-            //if a value comes early but with a greater value
-            //it is always better to choose this one
-            if(a[i]>=val) val=a[i],t=i;
+    int maxResult(vector<int>& nums, int k) {
+        int n = nums.size();
+        multiset<int> ms;
+        ms.insert(nums[0]);
+        for(int i = 1; i < n; i++)
+        {
+            if(ms.size()>k) ms.erase(ms.find(nums[i-k-1]));
+            nums[i] = nums[i] + *ms.rbegin();;
+            ms.insert(nums[i]);
         }
-        int res=INT_MIN;
-        for(int i=t;i>=max(0,n-k);i--)
-            res=max(res,dfs(a,k,i));
-        return dp[n]=res+a[n];
-    }
-    int maxResult(vector<int>& a, int k) {
-        for(int i=100000;~i;i--) dp[i]=INT_MIN;
-        dp[0]=a[0];
-        return dfs(a,k,a.size()-1);
+        return nums[n-1];
     }
 };
