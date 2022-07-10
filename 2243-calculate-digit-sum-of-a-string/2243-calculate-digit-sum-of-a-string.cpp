@@ -12,13 +12,11 @@ public:
         for(int i=0;i<size(s);i+=k){
             f+=doit(s.substr(i,k));
         }
-        
         return f;
     }
     string digitSum(string s, int k) {
         if(size(s)<k) return s;
         if(size(s)==k) return s;
-        
         return something(s,k).size()==k? something(s,k) : digitSum(something(s,k),k);
     }
 };
