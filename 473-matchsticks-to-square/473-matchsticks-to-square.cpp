@@ -1,19 +1,30 @@
 class Solution {
 public:
-    bool dp(vector<int>&m, int n, int a, int b, int c, int d){
-        if(a==0 && b==0 && c==0 && d==0) return true;
-        if(a<0 or b<0 or c<0 or d<0) return false;
-        
-        bool f=(dp(m,n-1,a-m[n],b,c,d) or dp(m,n-1,a,b-m[n],c,d) or dp(m,n-1,a,b,c-m[n],d) or dp(m,n-1,a,b,c,d-m[n]));
-        
+    int avg;
+    bool call(vector<int>&z,int n,int a,int b,int c,int d)
+    {
+        if(a==avg && b==avg && c==avg && d==avg ) return true;
+        if(a>avg || b>avg || c>avg || d>avg ) return false;
+        if(n<0) return false;
+        bool f = call(z,n-1,a+z[n],b,c,d) or call(z,n-1,a,b+z[n],c,d) or call(z,n-1,a,b,c+z[n],d) or call(z,n-1,a,b,c,d+z[n]);
         if(f) return true;
-        else return false;
+        return false;
+        
     }
     bool makesquare(vector<int>& m) {
-        sort(begin(m),end(m));
-        long long s=0;
-        for(auto i:m) s+=i;
-        if(s%4) return false;
-        else return dp(m,size(m)-1,s/4,s/4,s/4,s/4);
+        sort(m.begin(),m.end());
+        int i,j=0,k=0,x=m[0],a=0;
+        for(i=0;i<m.size();++i)
+        {
+            k+=m[i];
+            if(x!=m[i]) j=1;
+        }
+        avg=k/4;
+        // cout<<avg<<"\n"<<m.size();
+        if(j==0)
+        {
+            return m.size()%4==0?true:false;
+        }
+        return k%4==0?call(m,m.size()-1,0,0,0,0):false;
     }
 };
