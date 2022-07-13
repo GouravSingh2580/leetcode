@@ -9,6 +9,7 @@ public:
     int coinChange(vector<int>& coins, int amount) {
         int n = coins.size();
         vector<vector<int>> dp(amount+1, vector<int>(n+1,-1));
-        return ans(coins, amount, n, dp) == 1e9 ? -1 : ans(coins, amount, n, dp); 
+        int res=ans(coins, amount, n, dp);
+        return res == 1e9 ? -1 : res; 
     }
 };
