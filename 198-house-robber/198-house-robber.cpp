@@ -1,14 +1,13 @@
 class Solution {
 public:
-    int dp(vector<int>v,int n,vector<int>&ap){
-        if(n<0) return 0;
-        if(ap[n]!=-1) return ap[n];
-        int x=v[n]+dp(v,n-2,ap);
-        int y=dp(v,n-1,ap);
-        return ap[n]=max(x,y);
+    int call(vector<int> &a,int i,vector<int>&dp)
+    {
+        if(i>=a.size()) return 0;
+        if(dp[i]!=-1) return dp[i];
+        return dp[i]= max(call(a,i-1,dp),a[i]+call(a,i-2,dp));
     }
-    int rob(vector<int>& n) {
-        vector<int>ap(size(n)+1,-1);
-        return dp(n,size(n)-1,ap);
+    int rob(vector<int>& nums) {
+        vector<int>dp(size(nums)+1,-1);
+        return call(nums,size(nums)-1,dp);
     }
 };
