@@ -14,7 +14,7 @@ public:
     vector<int>dp;
     void sol(TreeNode* root, int l){
         if(!root) return;
-        if(l==size(dp)) dp.push_back(root->val);
+        if(l==size(dp)) dp.emplace_back(root->val);
         sol(root->right,l+1);
         sol(root->left,l+1);
     }
