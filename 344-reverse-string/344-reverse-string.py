@@ -1,4 +1,4 @@
 class Solution(object):
     def reverseString(self, s):
-        s[:]=s[::-1]
+        s[: : -1] = s
         
