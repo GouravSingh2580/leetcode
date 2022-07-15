@@ -10,7 +10,6 @@ public:
     }
     int countSubstrings(string s) {
         int c=0;
-        
         for(int i=0;i<s.size();i++){
             for(int j=1;j<=s.size()-i;j++){
                 if(isp(s.substr(i,j))) c++;
