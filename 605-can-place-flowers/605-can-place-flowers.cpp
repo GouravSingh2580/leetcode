@@ -6,16 +6,6 @@ public:
         if(i>=a.size() || i<0) return 0;
         if(dp[i]!=-1) return dp[i];
         
-        // if(i==0 && a[i+1]==0){
-        //     a[i]=1;
-        //     return dp[i]= call(a,i+1,dp)+1;
-        // }
-        
-        // if(i==a.size()-1 && a[i-1]==0){
-        //     a[i]=1;
-        //     return 1;
-        // }
-        
         if(a[i]==1) return dp[i]= call(a,i+1,dp);
         else if(i==0 && a[i+1]==0 or i==a.size()-1 && a[i-1]==0){
             a[i]=1; cc++;
