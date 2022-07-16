@@ -10,7 +10,7 @@ class Solution {
 public:
     long long countPairs(int n, vector<vector<int>>& e) {
         vector<int>vis(n);
-        vector<int>a;
+        vector<long long>a;
         vector<vector<int>>g(n);
         for(auto &x : e)
         {
@@ -27,13 +27,10 @@ public:
             }
         }
         if(a.size()==1) return 0;
-        long long ans = 0, sum = 0;
-        
-        for(int i = 0;i < a.size();i++){
-            ans += (sum * a[i]);
-            sum += a[i];
+        long long sum1=0,sum2=0;
+        for(auto i:a){
+            sum1+=i; sum2+=(i*i);
         }
-        
-        return ans; // {(sum of a[i])^2 - sum of (a[i]^2)}/2
+        return ((sum1*sum1)-sum2)/2; // {(sum of a[i])^2 - sum of (a[i]^2)}/2
     }
 };
