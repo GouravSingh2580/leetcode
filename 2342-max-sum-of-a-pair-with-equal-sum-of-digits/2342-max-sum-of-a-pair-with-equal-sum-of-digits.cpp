@@ -15,8 +15,8 @@ public:
         }
         
         int ans=-1;
-        for(auto i:mp){
-            multiset<int>st=i.second;
+        for(auto j:mp){
+            multiset<int>st=j.second;
             if(st.size()>=2){
                 auto i=st.end();
                 i--;
