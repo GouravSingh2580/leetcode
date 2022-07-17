@@ -9,7 +9,7 @@ public:
         return d;
     }
     int maximumSum(vector<int>& n) {
-        map<int,multiset<int>>mp;
+        unordered_map<int,multiset<int>>mp;
         for(auto i:n) {
             int t=s(i); mp[t].insert(i);
         }
