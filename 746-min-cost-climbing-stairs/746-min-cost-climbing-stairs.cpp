@@ -1,14 +1,29 @@
 class Solution {
-private:
-    int mccs(vector<int>&c, int n, vector<int>&dp){
-        if(n<=1) return 0;
-        if(dp[n]) return dp[n];
-        dp[n]= min(mccs(c,n-2,dp) +c[n-2], mccs(c,n-1,dp) +c[n-1]);
-        return dp[n];
+    int dp[10001];
+    int n; vector<int> arr;
+    int rec(int level){
+        if(level == n)
+            return 0;
+        
+        if(dp[level]!= -1)
+            return dp[level];
+        int ans = -1;
+        //computatuion
+        if(level+1 <= n){
+            ans = arr[level]+rec(level+1);
+        }
+        if(level+2 <= n){
+            ans =  min(ans,arr[level]+rec(level+2));
+        }
+        
+        return dp[level] = ans;
     }
-public:
-    int minCostClimbingStairs(vector<int>& c) {
-        vector<int>dp(size(c)+1,0);
-        return mccs(c,size(c),dp);
+    public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        memset(dp,-1,sizeof(dp));
+        n= cost.size();
+        arr.resize(n);
+        arr =cost;
+        return min(rec(1),rec(0));
     }
 };
