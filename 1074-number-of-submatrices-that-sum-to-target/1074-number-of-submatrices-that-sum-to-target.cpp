@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // tep k kia baad me smjhunga
     int numSubmatrixSumTarget(vector<vector<int>>& matrix, int target) {
         int n = matrix.size(),m=matrix[0].size();
         int dp[101][101];
