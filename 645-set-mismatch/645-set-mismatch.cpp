@@ -1,10 +1,10 @@
 class Solution {
 public:
     vector<int> findErrorNums(vector<int>& n) {
-        int xoz=0;
         int maxe=n.size();
-        for(int i=1;i<=maxe;i++) xoz^=i;
-        
+        vector<int>dp {0,1,maxe+1,0,maxe};
+        int xoz=dp[((maxe-1)%4) +1];
+
         set<int>st;
         
         for(auto i:n) st.insert(i);
