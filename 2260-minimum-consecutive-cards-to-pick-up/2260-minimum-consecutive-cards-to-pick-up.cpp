@@ -5,7 +5,7 @@ public:
             if(c[i]==c[i+1]) return 2;
         }
         int ans=INT_MAX;
-        map<int,int>mp;
+        unordered_map<int,int>mp;
         for(int i=0;i<c.size();i++){
             if(mp.count(c[i])>0) //always remember
                 ans=min(ans,abs(i-mp[c[i]])+1);
