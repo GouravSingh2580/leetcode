@@ -1,7 +1,7 @@
 class Solution {
 public:
     int countPrefixes(vector<string>& w, string s) {
-        map<string,int>mp;
+        unordered_map<string,int>mp;
         string p="";
         
         int c=0;
