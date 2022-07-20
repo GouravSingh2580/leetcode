@@ -7,7 +7,7 @@ public:
         int n1=s.size();
         int n2=w.size();
         for(int i=0;i<n1;i++){
-            if(mp1[w[j]]==0) break;
+            if(mp1[w[j]]==0) return false;
             if(s[i]==w[j]) {
                 j++;
                 if(j==n2){
