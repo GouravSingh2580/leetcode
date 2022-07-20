@@ -26,7 +26,6 @@ public:
                 if(it==mp[t[j]].end()) break;
                 
                 latest_idx=*it;
-                
                 if(j==t.size()-1) c++;
             }
         }
