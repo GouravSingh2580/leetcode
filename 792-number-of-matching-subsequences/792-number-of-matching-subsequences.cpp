@@ -21,13 +21,13 @@ public:
     
     int numMatchingSubseq(string s, vector<string>& w) {
         unordered_map<string,bool>mp;
-        for(auto i:s) mp1[i]++;
+        for(int i=0;i<s.length();i++) mp1[s[i]]++;
         mp[s]=true;
         int ans=0;
-        for(auto i:w){
-            if(i.size()>s.size()) continue;
+        for(int i=0;i<w.size();i++){
+            if(w[i].length()>s.size()) continue;
             else {
-                if(isSub(s,i,mp)) ans+=1;
+                if(isSub(s,w[i],mp)) ans+=1;
             }
         }
         return ans;
