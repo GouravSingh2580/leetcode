@@ -1,7 +1,7 @@
 class Solution {
 public:
-    map<char,int>mp1;
-    bool isSub(string &s, string &w,map<string,bool>&mp){
+    unordered_map<char,int>mp1;
+    bool isSub(string &s, string &w,unordered_map<string,bool>&mp){
         if(mp[w]) return true;    
         int j=0;
         int n1=s.size();
@@ -20,7 +20,7 @@ public:
     }
     
     int numMatchingSubseq(string s, vector<string>& w) {
-        map<string,bool>mp;
+        unordered_map<string,bool>mp;
         for(int i=0;i<s.size();i++) mp1[s[i]]++;
         mp[s]=true;
         int ans=0;
