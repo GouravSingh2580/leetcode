@@ -1,10 +1,8 @@
 class Solution:
     def numMatchingSubseq(self, s: str, words: List[str]) -> int:
         dp1={}
-        
         for i in s:
             dp1[i]=True
-        print(dp1)
         dp = {s:True}
         
         def isSub(s,word):
