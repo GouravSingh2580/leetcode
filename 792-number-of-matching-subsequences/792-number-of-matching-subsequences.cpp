@@ -21,7 +21,7 @@ public:
             string t=w[i];
             int latest_idx=-1;
             for(int j=0;j<t.size();j++){
-                auto it=upper_bound(begin(mp[t[j]]),end(mp[t[j]]),latest_idx);
+                auto it=upper_bound(begin(mp[t[j]]),end(mp[t[j]]),latest_idx); //all greater values than latest_idx
                 
                 if(it==mp[t[j]].end()) break;
                 
