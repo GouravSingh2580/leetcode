@@ -25,7 +25,7 @@ public:
         mp[s]=true;
         int ans=0;
         for(int i=0;i<w.size();i++){
-            if(w[i].length()>s.size()) continue;
+            if(w[i].size()>s.size()) continue;
             else {
                 if(isSub(s,w[i],mp)) ans+=1;
             }
