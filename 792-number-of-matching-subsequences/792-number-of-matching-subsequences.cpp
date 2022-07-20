@@ -12,7 +12,7 @@ public:
     //     return i == n;
     // }
     int numMatchingSubseq(string s, vector<string>& w) {
-        unordered_map<char,vector<int>>mp;
+        map<char,vector<int>>mp;
         int j=0;
         for(auto i:s) mp[i].push_back(j++);
         
