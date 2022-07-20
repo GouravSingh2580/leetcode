@@ -1,6 +1,6 @@
 class Solution {
 public:
-    map<char,int>mp1;
+    unordered_map<char,int>mp1;
     bool isSub(string &s, string &w,unordered_map<string,bool>&mp){
         if(mp[w]) return true;    
         int j=0;
