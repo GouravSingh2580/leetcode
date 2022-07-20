@@ -21,7 +21,7 @@ public:
     
     int numMatchingSubseq(string s, vector<string>& w) {
         unordered_map<string,bool>mp;
-        for(int i=0;i<s.length();i++) mp1[s[i]]++;
+        for(int i=0;i<s.size();i++) mp1[s[i]]++;
         mp[s]=true;
         int ans=0;
         for(int i=0;i<w.size();i++){
