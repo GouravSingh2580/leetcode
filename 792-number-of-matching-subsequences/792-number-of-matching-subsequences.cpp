@@ -1,50 +1,33 @@
 class Solution {
 public:
-    int numMatchingSubseq(string s, vector<string>& words) {
-        map<int,int> a;
-        int i,j,k,ans=0;
-        for(i=0;i<s.size();++i)
-        {
-            ++a[s[i]-'a'];
-        }
-        vector<int> z[27];
-        for(i=0;i<s.size();++i)
-        {
-            z[s[i]-'a'].push_back(i);
-        }
-        
-        for(i=0;i<words.size();++i)
-        {
-            k=-1;
-            int flag=0;
-            for(j=0;j<words[i].size();++j)
-            {
-                if(a[words[i][j]-'a']==0)
-                {
-                    flag=1;
-                    break;
-                }
-                else
-                {
-                    int p=k;
-                    for(int x=0;x<z[words[i][j]-'a'].size();++x)
-                    {
-                        if(k<z[words[i][j]-'a'][x])
-                        {
-                            k=z[words[i][j]-'a'][x];
-                            break;
-                        }
-                    }
-                    if(p==k)
-                    {
-                        flag=1;
-                        break;
-                    }
+    map<char,int>mp1;
+    bool isSub(string &s, string &w,unordered_map<string,bool>&mp){
+        if(mp[w]) return true;    
+        int j=0;
+        int n1=s.size();
+        int n2=w.size();
+        for(int i=0;i<n1;i++){
+            if(mp1[w[j]]==0) break;
+            if(s[i]==w[j]) {
+                j++;
+                if(j==n2){
+                    mp[w]=true; return true;
                 }
             }
-            if(flag==0)
-            {
-                ++ans;
+        }
+        mp[w]=false; 
+        return false;
+    }
+    
+    int numMatchingSubseq(string s, vector<string>& w) {
+        unordered_map<string,bool>mp;
+        for(auto i:s) mp1[i]++;
+        mp[s]=true;
+        int ans=0;
+        for(auto i:w){
+            if(i.size()>s.size()) continue;
+            else {
+                if(isSub(s,i,mp)) ans+=1;
             }
         }
         return ans;
