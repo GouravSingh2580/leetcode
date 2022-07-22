@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> arrayChange(vector<int>& n, vector<vector<int>>& op) {
-        map<int,int> mp;     //****store index of element in map
+        unordered_map<int,int> mp;     //****store index of element in map
         for(int i =0;i<n.size();i++){
             mp[n[i]] = i;   //** use map to find the index 
         }
