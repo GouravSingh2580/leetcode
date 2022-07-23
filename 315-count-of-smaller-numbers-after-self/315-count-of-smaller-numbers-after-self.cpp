@@ -11,10 +11,10 @@ public:
   int query(int val) {
     int res = 0;
     for (int l = n * 2, r = val + n * 2; l < r; l >>= 1, r >>= 1) {
-      if (l & 1) {  // also l & 0x01
+      if (l & 0x01) {  // also l & 1
         res += segtree[l++];
       }
-      if (r & 1) { // also r & 0x01
+      if (r & 0x01) { // also r & 1
         res += segtree[--r];
       }
     }
