@@ -11,16 +11,19 @@
  */
 class Solution {
 public:
+    TreeNode* dfs(TreeNode* root) {
+      if (!root->left && !root->right) return root;
+      if (root->left) {
+          TreeNode* lastLeft = dfs(root->left);
+          lastLeft->right = root->right;
+          root->right = root->left;
+          root->left = nullptr;
+      }
+     if(root->right) return dfs(root->right);
+     return root;
+    }
     void flatten(TreeNode* root) {
-        while(root)
-        {   TreeNode* temp=root;
-            TreeNode* t=root->right;
-            root->right=root->left;
-            root->left=NULL;
-            while(temp->right)
-                temp=temp->right;
-            temp->right=t;
-            root=root->right;
-        }
+        if (!root) return;
+        dfs(root);
     }
 };
