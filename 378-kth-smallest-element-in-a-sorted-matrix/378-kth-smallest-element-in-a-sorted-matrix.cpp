@@ -1,15 +1,16 @@
 class Solution {
 public:
     int kthSmallest(vector<vector<int>>& m, int k) {
-        priority_queue<int>pq;
-        for(int i=0;i<m.size();i++){
-            for(int j=0;j<m[i].size();j++){
-                pq.push(m[i][j]);
-                if(pq.size()>k){
-                    pq.pop();
-                }
+        multiset<int>s;
+        for(auto i:m){
+            for(auto j:i){
+                s.insert(j);
             }
         }
-        return pq.top();
+        int kk=0;
+        for(auto i:s){
+            kk++; if(kk==k) return i;
+        }
+        return 0;
     }
 };
