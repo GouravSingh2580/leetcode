@@ -7,7 +7,7 @@ public:
         
 //         return sol(v,n-1,t)+sol(v,n,t-v[n-1]);
 //     }
-    map<int, int> mp;
+    unordered_map<int, int> mp;
     int combinationSum4(vector<int>& n, int t) {
         if (t == 0) return 1;
         if (t < 0) return 0;
