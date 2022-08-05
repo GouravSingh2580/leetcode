@@ -1,22 +1,17 @@
 class Solution {
-public:
-//     int sol(vector<int>&v, int n , int t){
-//         if(t==0) return 1;
-//         if(t<0) return 0;
-//         if(n<=0) return 0;
-        
-//         return sol(v,n-1,t)+sol(v,n,t-v[n-1]);
-//     }
-    unordered_map<int, int> mp;
-    int combinationSum4(vector<int>& n, int t) {
-        if (t == 0) return 1;
-        if (t < 0) return 0;
-        
-        if (mp.count(t)) return mp[t];
-        int res = 0;
-        for (auto i : n) {
-            res += combinationSum4(n, t - i);
+private:
+    int helper(vector<int>& dp, vector<int>& nums, int left) {
+        if (left <= 0) return left == 0;
+        if (dp[left] != -1) return dp[left];
+        dp[left] = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            dp[left] += helper(dp, nums, left - nums[i]);
         }
-        return mp[t]=res;
+        return dp[left];
+    }
+public:
+    int combinationSum4(vector<int>& nums, int target) {
+        vector<int> dp(target + 1, -1);
+        return helper(dp, nums, target);
     }
 };
