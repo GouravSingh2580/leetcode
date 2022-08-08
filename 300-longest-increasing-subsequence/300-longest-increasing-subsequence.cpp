@@ -1,12 +1,14 @@
 class Solution {
 public:
-    int lengthOfLIS(vector<int>& n) {
-        vector<int>res;
-        for(auto i:n){
-            auto j=lower_bound(res.begin(),res.end(),i);
-            if(j==res.end()) res.push_back(i);
-            else *j=i;
+    int lengthOfLIS(vector<int>& nums) {
+        multiset<int> s;
+        for(auto& num:nums)
+        {
+            s.insert(num);
+            auto it = s.find(num);
+            ++it;
+            if(it != s.end()) s.erase(it);
         }
-        return res.size();
+        return s.size();
     }
 };
