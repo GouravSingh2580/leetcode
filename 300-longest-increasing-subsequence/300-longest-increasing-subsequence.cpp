@@ -2,10 +2,10 @@ class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
         multiset<int> s;
-        for(auto& num:nums)
+        for(auto& i:nums)
         {
-            s.insert(num);
-            auto it = s.find(num);
+            s.insert(i);
+            auto it = s.find(i);
             ++it;
             if(it != s.end()) s.erase(it);
         }
