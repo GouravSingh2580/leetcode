@@ -23,7 +23,7 @@ public:
     }
     int c=0;
     int minimumOperations(vector<int>& n) {
-        for(int i=0;i<10e5;i++){
+        for(int i=0;i<10e3;i++){
             if(is_equal(n)) break;
             else {
                 c++; sol(n);
