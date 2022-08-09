@@ -1,23 +1,33 @@
-#define ll long long
-int mod = pow(10, 9) + 7;
 class Solution {
 public:
-    map <int, ll> memo;
+    const int mod = 1e9 + 7;
     int numFactoredBinaryTrees(vector<int>& arr) {
-        int count = 0;
-        multiset <int> lst(arr.begin(), arr.end());
-        for (auto x : lst) {
-            if (x != 0) {
-                for (auto y : lst) {
-                    if (x == y) { memo[x]++; break; }
-                    if (x % y == 0 && memo.find(x / y) != memo.end()) {
-                        memo[x] += (memo[x / y] * memo[y]) % mod;
-                    }
+        int n = arr.size();
+        sort(arr.begin(), arr.end());
+        vector<long> dp(n);
+        dp[0] = 1;
+        int res = 0;
+        for (int i = 1; i < n; i++)
+        {
+            int target = arr[i];
+            int p = 0, q = i - 1; 
+            long ways = 1;
+            while(p <= q)
+            {
+                long mul = (((long)arr[p]) * (arr[q]));
+                if (mul == target) 
+                {
+                    if (p == q) ways += (dp[p] * dp[q]) % mod;
+                    else ways += ((dp[p] * dp[q]) * 2) % mod;
+                    p++;
+                    q--;
                 }
-                count += memo[x]%mod;
-                count %=  mod;
+                else if (mul < target) p++;
+                else if (mul > target) q--;
             }
+            dp[i] = ways;
+            res  = (int)((res + dp[i]) % mod);
         }
-        return count;
+        return res + 1;
     }
 };
