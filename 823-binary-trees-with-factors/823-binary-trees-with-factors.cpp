@@ -6,7 +6,7 @@ public:
         sort(arr.begin(), arr.end());
         vector<long> dp(n);
         dp[0] = 1;
-        int res = 0;
+        int res = 1;
         for (int i = 1; i < n; i++)
         {
             int target = arr[i];
@@ -28,6 +28,6 @@ public:
             dp[i] = ways;
             res  = (int)((res + dp[i]) % mod);
         }
-        return res + 1;
+        return res;
     }
 };
