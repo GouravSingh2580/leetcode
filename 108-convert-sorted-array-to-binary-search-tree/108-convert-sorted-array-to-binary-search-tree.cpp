@@ -10,8 +10,7 @@
  * };
  */
 class Solution {
-public:
-    
+public: 
     TreeNode* makeTreefromArray(vector<int>&n, int left, int right){
         if(left>right) return nullptr;
         
