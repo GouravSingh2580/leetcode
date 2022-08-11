@@ -13,7 +13,7 @@ class Solution {
 public:
     bool recursiveBST(TreeNode* node, long min, long max) { 
         if (!node) return true; 
-        if (node->val <= min || node->val >= max) return false; 
+        if (node->val <= min or node->val >= max) return false; 
         
         return (recursiveBST(node->left, min, node->val) && recursiveBST(node->right, node->val, max)); 
     } 
