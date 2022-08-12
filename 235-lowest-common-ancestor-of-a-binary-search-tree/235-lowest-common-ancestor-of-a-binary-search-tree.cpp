@@ -11,21 +11,25 @@
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        multiset<TreeNode*> st;
-        TreeNode* t=root,* lst;
+        // recur or iterative
+        multiset<TreeNode*>st;
+        TreeNode* t=root, *res;
+        
         while(1){
-            st.insert(t);
-            if(t==p)break;
-            if(p->val>t->val) t= t->right;
-            else t=t->left;
+            st.insert(t); //  insert root
+            if(t==p) break;
+            if(t->val>p->val) t=t->left;
+            else t=t->right;
         }
+        
         t=root;
         while(1){
-            if(st.find(t)!=st.end()) lst=t;
-            if(t==q)break;
-            if(q->val>t->val) t= t->right;
+            if(st.find(t)!=st.end()) res=t;
+            if(t==q) break;
+            if(t->val<q->val) t=t->right;
             else t=t->left;
         }
-        return lst;
+        
+        return res;
     }
 };
