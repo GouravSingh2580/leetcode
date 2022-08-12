@@ -11,7 +11,7 @@
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        set<TreeNode*> st;
+        multiset<TreeNode*> st;
         TreeNode* t=root,* lst;
         while(1){
             st.insert(t);
