@@ -2,13 +2,11 @@ class Solution {
 public:
     vector<int> findSubstring(string s, vector<string>& words) {
         int len=0;
-        for(auto x : words){
-            len+=x.size();
-        }
+        for(auto x : words) len+=x.size();
         
         string tp="";
         vector<int> ans;
-        if(s.size()<len) return ans;
+        // if(s.size()<len) return ans;
         
         
         vector<pair<string,int>> v; //slide take all windows
@@ -36,7 +34,6 @@ public:
             int index = x.second;
             bool aa=true;
             string tp1="";
-            // if(y.size()<wordlen) continue;
             
             for(int i=0;i<wordlen;i++){
                 tp1+=y[i];
