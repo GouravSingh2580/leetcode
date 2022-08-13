@@ -1,29 +1,26 @@
 class Solution {
 public:
-    map<string,int>mp;
-    int sz;
-    vector<int> findSubstring(string s, vector<string>& words) {
-        vector<int>ans;
-        if(words.size() == 0) return {};
-        sz = words[0].size();
-        int totalSize = sz * words.size();
-        for(auto x:words) mp[x]++;
-        string v;
-        for(int i = 0;i < s.size();i++){
-            v.push_back(s[i]);
-            if(i < totalSize - 1) continue;
-            if(check(v)) ans.push_back(i - totalSize + 1);
-            v.erase(0,1);
+    bool isValid( int i, int j, string &s, unordered_map<string,int>&mp,int len)
+    {
+        unordered_map<string,int>m;
+        string t;int x = 0;
+        for(int k = i;k<=j-len+1;k+= len){
+            string t = s.substr(k,len);
+            if( mp.find(t)== mp.end()) return false;
+            else m[t]++;
+            if( m[t] == mp[t]) x++;
         }
-        return ans;
+        return x == mp.size();
     }
     
-    bool check(string v){
-        unordered_map<string,int>sub;
-        for(auto x:mp) sub[x.first] = x.second;
-        for(int i = 0;i < v.size();i += sz){
-            if(!sub.count(v.substr(i,sz)) or (--sub[v.substr(i,sz)] < 0)) return 0;
+    vector<int> findSubstring(string s, vector<string>& words) {
+        unordered_map<string,int>mp;
+        for(auto & it : words)mp[it]++;
+        int len = words[0].size()*words.size(),i = 0;
+        vector<int>res;
+        for(int j = len-1;j<s.size();j++,i++){
+            if( isValid(i,j,s,mp,words[0].size())) res.push_back(i);
         }
-        return 1;                                
+        return res;
     }
 };
