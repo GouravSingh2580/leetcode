@@ -26,7 +26,6 @@ public:
         
         int wordlen=words[0].size();
         for(auto x : v){
-            
             string y =  x.first;
          
             int index = x.second;
@@ -57,7 +56,6 @@ public:
             if(aa) ans.push_back(index);
             st = st1;
         }
-        
         return ans;
     }
 };
