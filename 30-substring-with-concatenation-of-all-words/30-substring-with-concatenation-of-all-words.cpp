@@ -6,7 +6,7 @@ public:
         string t;int x = 0;
         for(int k = i;k<=j-len+1;k+= len){
             string t = s.substr(k,len);
-            if(mp.count(t)<1) return false;
+            if(!mp.count(t)) return false;
             else m[t]++;
             if( m[t] == mp[t]) x++;
         }
