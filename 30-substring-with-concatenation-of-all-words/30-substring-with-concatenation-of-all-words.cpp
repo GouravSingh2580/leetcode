@@ -11,7 +11,7 @@ public:
         if(s.size()<len) return ans;
         
         
-        vector<pair<string,int>> v;
+        vector<pair<string,int>> v; //slide take all windows
         for(int i=0;i<len;i++) tp+=s[i];
         
         v.push_back({tp,0});
@@ -36,7 +36,7 @@ public:
             int index = x.second;
             bool aa=true;
             string tp1="";
-            if(y.size()<wordlen) continue;
+            // if(y.size()<wordlen) continue;
             
             for(int i=0;i<wordlen;i++){
                 tp1+=y[i];
