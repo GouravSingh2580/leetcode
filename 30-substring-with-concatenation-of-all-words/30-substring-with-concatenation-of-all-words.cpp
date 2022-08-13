@@ -6,9 +6,7 @@ public:
         
         string tp="";
         vector<int> ans;
-        // if(s.size()<len) return ans;
-        
-        
+    
         vector<pair<string,int>> v; //slide take all windows
         for(int i=0;i<len;i++) tp+=s[i];
         
