@@ -1,16 +1,12 @@
 class Solution {
+    int dp(const vector<int>& nums, int l, int ans) {
+        if (l >= nums.size()) return -10004;
+        
+        ans = max(nums[l], ans + nums[l]);
+        return max(ans, dp(nums, l+1, ans));
+    }
 public:
     int maxSubArray(vector<int>& nums) {
-        int cursum=0;
-        int maxsum=INT_MIN;
-        for(int i=0;i<nums.size();i++) //kadane algo
-        {
-            cursum+=nums[i];
-            maxsum=max(maxsum,cursum);
-            if(cursum<0){
-                cursum=0;
-            }
-        }
-        return maxsum;
+        return dp(nums, 0, -10004);
     }
 };
