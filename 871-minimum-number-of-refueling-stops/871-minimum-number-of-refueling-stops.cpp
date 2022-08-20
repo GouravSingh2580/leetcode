@@ -9,11 +9,10 @@ public:
         while(start<target)
         {
             ans++;
-            while(i<nums.size() and nums[i][0]<=start)
-            {
-                m.insert(nums[i++][1]);
-            }
+            while(i<nums.size() and nums[i][0]<=start) m.insert(nums[i++][1]);
+            
             if(m.empty()) return -1;
+            
             start+=*m.begin();
             m.erase(m.begin());
         }
