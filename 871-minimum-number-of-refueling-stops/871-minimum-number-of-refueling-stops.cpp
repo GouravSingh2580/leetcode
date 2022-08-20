@@ -13,10 +13,7 @@ public:
             {
                 m.insert(nums[i++][1]);
             }
-            if(m.size()==0)
-            {
-                return -1;
-            }
+            if(m.empty()) return -1;
             start+=*m.begin();
             m.erase(m.begin());
         }
