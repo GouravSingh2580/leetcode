@@ -5,11 +5,11 @@ public:
         int i=0;
         int res=0;
         multiset<int,greater<int>>m;
-        int count=0;
+        int ans=0;
         while(start<target)
         {
-            count++;
-            while(i<nums.size()&&nums[i][0]<=start)
+            ans++;
+            while(i<nums.size() and nums[i][0]<=start)
             {
                 m.insert(nums[i++][1]);
             }
@@ -20,6 +20,6 @@ public:
             start+=*m.begin();
             m.erase(m.begin());
         }
-        return count;
+        return ans;
     }
 };
