@@ -12,7 +12,6 @@
 class Solution {
 public:
     map<int,int> m;
-    
     void travel(TreeNode* root,int l){
         if(!root)
             return;
