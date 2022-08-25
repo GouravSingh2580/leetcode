@@ -3,11 +3,9 @@ public:
     bool canConstruct(string r, string m) {
         map<char,int>mp;
         for(auto i:m) mp[i]++;
-        int c=0;
+        
         for(auto i:r){
-            if(mp[i]){
-                mp[i]--; c++;
-            }
+            if(mp[i]) mp[i]--;
             else return false;
         }
         return true;
