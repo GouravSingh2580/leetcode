@@ -9,8 +9,6 @@ class Solution:
                 start=x.index(st[k])
                 x[start]='.'
                 end=x.index(st[k])
-                # print(start)
-                
                 if i!=end-start-1:
                     return False
             k+=1
