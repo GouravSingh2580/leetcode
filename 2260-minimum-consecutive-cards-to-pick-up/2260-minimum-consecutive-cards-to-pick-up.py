@@ -4,6 +4,6 @@ class Solution:
         result = 10**6 + 1
         for i in range(len(cards)):
             if cards[i] in dp:
-                result = min(result, i - dp[cards[i]] + 1);
+                result = min(result, i - dp[cards[i]] + 1)
             dp[cards[i]] = i
         return -1 if result == 10**6 + 1 else result
