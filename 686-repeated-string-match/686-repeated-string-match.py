@@ -6,11 +6,16 @@ class Solution:
         k=0
         t=a
         z=""
-        s=a
-        for i in range(len(b)//(len(a))+2):
-            if b in s:
-                return i+1
-            s += a
-
-        return -1
+        while b not in z:
+            z+=t
+            k+=1
+            
+            if len(z)>(len(b)+len(a)):
+                break
+            if k>10**5:
+                return -1
+        if b in z:
+            return k
+        else:
+            return -1
         
