@@ -12,8 +12,6 @@ class Solution:
             
             if len(z)>(len(b)+len(a)):
                 break
-            if k>10**5:
-                return -1
         if b in z:
             return k
         else:
