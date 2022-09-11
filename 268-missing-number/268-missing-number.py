@@ -1,13 +1,11 @@
 class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
-        d=defaultdict(int)
-        
-        for i in nums:
-            d[i]=1
-        
-        k=0
-        while d[k]:
+    def missingNumber(self, n: List[int]) -> int:
+        k = 0
+        hashk = defaultdict(int)
+        for i in n:
+            hashk[i] = 1
+        while hashk[k]:
             k+=1
-        
         return k
+        
         
