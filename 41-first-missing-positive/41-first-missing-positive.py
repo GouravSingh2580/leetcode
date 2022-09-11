@@ -3,6 +3,6 @@ class Solution:
         d = defaultdict(int)
         for i in nums:
             d[i] =1
-        for i in range(1,10**9):
+        for i in range(1,10**10):
             if(d[i] == 0):
                 return i
