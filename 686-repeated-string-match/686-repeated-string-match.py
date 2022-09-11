@@ -6,7 +6,7 @@ class Solution:
         k=0
         t=a
         z=""
-        for i in range(len(b)//len(a)+2):
+        for i in range(len(b)//len(a)+3):
             z+=t
             k+=1
             
