@@ -1,22 +1,26 @@
 class Solution {
 public:
-    vector<vector<int>> dp;
-    int solve(vector<int>& nums,vector<int>& mul,int pm,int lo,int hi)
+    vector<vector<int>> mp;
+    int call(vector<int>&nums,vector<int>&M,int i,int j)
     {
-        if( pm >= mul.size())
-            return 0;
-        if(dp[pm][lo] != INT_MIN)
-            return dp[pm][lo];
+        if(i==M.size()) return 0;
         
-        return dp[pm][lo]= max(mul[pm]*nums[lo]+solve(nums,mul,pm+1,lo+1,hi),
-                   mul[pm] * nums[hi] + solve(nums,mul,pm+1,lo,hi-1));
+        if(mp[i][j]!=INT_MIN) return mp[i][j];
+        
+        int s1,s2,e=(nums.size()-1)-(i-j);
+        
+        s1=(M[i]*nums[j])+call(nums,M,i+1,j+1);
+        
+        s2=(M[i]*nums[e])+call(nums,M,i+1,j);
+        
+        mp[i][j]=max(s1,s2);
+        // cout<<mp[i][j];
+        return mp[i][j];
     }
-    
     int maximumScore(vector<int>& nums, vector<int>& mul) {
         int n = nums.size();
         int m = mul.size();
-        dp.assign(m+1,vector<int>(m+1,INT_MIN));
-        
-        return  solve(nums,mul,0,0,n-1);
+        mp.assign(m+1,vector<int>(m+1,INT_MIN));
+        return call(nums,mul,0,0);
     }
 };
