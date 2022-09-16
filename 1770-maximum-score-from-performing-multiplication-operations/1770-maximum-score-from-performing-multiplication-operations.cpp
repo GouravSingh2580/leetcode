@@ -20,7 +20,7 @@ public:
     int maximumScore(vector<int>& nums, vector<int>& mul) {
         int n = nums.size();
         int m = mul.size();
-        mp.assign(m+1,vector<int>(m+1,INT_MIN));
+        mp.assign(1001,vector<int>(1001,INT_MIN));
         return call(nums,mul,0,0);
     }
 };
