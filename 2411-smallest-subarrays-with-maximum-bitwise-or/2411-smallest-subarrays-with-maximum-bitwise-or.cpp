@@ -2,7 +2,6 @@ class Solution {
 public:
     int bor(int i,int x, vector<int>&v){
         int res=x,res2=0;
-        // for(int j=i;j<size(v);j++) res|=v[j];
         int c=0;
         for(int j=i;j<size(v);j++) {
             res2|=v[j]; c++;
