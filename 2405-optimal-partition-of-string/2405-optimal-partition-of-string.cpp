@@ -4,7 +4,7 @@ public:
         int count = 1;
         unordered_map<char, int> mp;
         for(auto &it: s) {
-            if(mp[it] and mp[it] >= 1) {
+            if(mp[it]) {
                 count += 1;
                 mp.clear();
             }
