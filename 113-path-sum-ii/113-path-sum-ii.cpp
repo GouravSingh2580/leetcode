@@ -18,7 +18,7 @@ public:
         return paths;  
     }
 private:
-    void findPaths(TreeNode* node, int sum, vector<int>& path, vector<vector<int> >& paths) {
+    void findPaths(TreeNode* node, int sum, vector<int>& path, vector<vector<int> >& paths)     {
         if (!node) return;
         path.push_back(node -> val);
         if (!(node -> left) && !(node -> right) && sum == node -> val)
