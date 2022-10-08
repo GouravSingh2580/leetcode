@@ -1,7 +1,7 @@
 class Solution:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
         nums.sort()
-        closest_sum = 2**31-1
+        closest_sum = 10**18
         for i in range(len(nums)):
             j,k = i+1, len(nums)-1
             while j<k:
