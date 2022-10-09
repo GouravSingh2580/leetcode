@@ -13,14 +13,14 @@ class Solution {
 public:
     bool findTarget(TreeNode* root, int k) {
         stack<TreeNode*>st;
-        map<int,int>mp;
+        unordered_map<int,int>mp;
         while(root or !st.empty()){
             while(root){
                 st.push(root);
                 if(mp[k-root->val]){
                     return true;
                 }
-                else mp[root->val]++;
+                else mp[root->val]=1;
                 root=root->left;
             }
             root=st.top();st.pop();
