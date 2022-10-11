@@ -13,8 +13,6 @@ class Solution:
         
         suff=suff[::-1]
         
-        # print(suff)
-        
         for i in range(len(nums)):
             if nums[i]<suff[i] and nums[i]>pre[i]:
                 return True
