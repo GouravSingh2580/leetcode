@@ -1,23 +1,26 @@
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
 class Solution {
 public:
+    typedef tree<int, null_type, less_equal<int>,rb_tree_tag,tree_order_statistics_node_update> pbd;
     bool increasingTriplet(vector<int>& nums) {
-        vector<int> v;
-        v.push_back(nums[0]);
-        
-        for (auto i:nums)
-        {
-            if (i > v.back())
-            {
-                v.push_back(i);
-                if (v.size()==3)  return true;
-            }
-            else{
-                if (i <= v[0])       v[0] = i;
-                else if (i <= v[1])  v[1] = i;
-                // else if (i <= v[2])  v[2] = i;
-            }
+        vector<int>pre;
+        vector<int>suff;
+        int x=INT_MAX, y=INT_MIN;
+        for(int i=0;i<nums.size();i++){
+            x=min(x,nums[i]);
+            pre.push_back(x);
         }
+        for(int i=nums.size()-1;i>=0;i--){
+            y=max(y,nums[i]);
+            suff.push_back(y);
+        }
+        reverse(suff.begin(),suff.end());
         
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]>pre[i] and nums[i]<suff[i]) return true;
+        }
         return false;
     }
 };
