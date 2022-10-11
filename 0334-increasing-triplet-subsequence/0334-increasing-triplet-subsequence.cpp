@@ -14,7 +14,7 @@ public:
             else{
                 if (i <= v[0])       v[0] = i;
                 else if (i <= v[1])  v[1] = i;
-                else if (i <= v[2])  v[2] = i;
+                // else if (i <= v[2])  v[2] = i;
             }
         }
         
