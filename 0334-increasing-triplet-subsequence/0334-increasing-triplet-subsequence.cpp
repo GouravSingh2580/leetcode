@@ -12,9 +12,10 @@ public:
                 if (v.size() > 2)  return true;
                 // continue;
             }
-            
-            if      (nums[i] <= v[0])      v[0] = nums[i];
-            else if (nums[i] <= v[1])      v[1] = nums[i];
+            else{
+                if      (nums[i] <= v[0])      v[0] = nums[i];
+                else if (nums[i] <= v[1])      v[1] = nums[i];
+            }
         }
         
         return false;
