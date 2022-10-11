@@ -4,17 +4,16 @@ public:
         vector<int> v;
         v.push_back(nums[0]);
         
-        for (int i = 1; i < nums.size(); i++)
+        for (auto i:nums)
         {
-            if (nums[i] > v.back())
+            if (i > v.back())
             {
-                v.push_back(nums[i]);
-                if (v.size() > 2)  return true;
-                // continue;
+                v.push_back(i);
+                if (v.size()==3)  return true;
             }
             else{
-                if      (nums[i] <= v[0])      v[0] = nums[i];
-                else if (nums[i] <= v[1])      v[1] = nums[i];
+                if (i <= v[0])      v[0] = i;
+                else if (i <= v[1])      v[1] = i;
             }
         }
         
