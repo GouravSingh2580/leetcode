@@ -2,7 +2,7 @@ class Solution {
 public:
     bool checkIfPangram(string sentence) {
         string s="abcdefghijklmnopqrstuvwxyz";
-        map<char,int>mp;
+        unordered_map<char,int>mp;
         for(auto i:s) mp[i]++;
         
         for(auto i:sentence) {
