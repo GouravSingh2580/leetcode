@@ -1,8 +1,6 @@
 class Solution:
     def isUgly(self, n: int) -> bool:
         return n > 0 == 30 ** 32 % n
-    # n > 0 and 0 == 30 ** 32 % n
-
 #         if n==0:
 #             return False
 #         if n==1:
