@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<int>> findWinners(vector<vector<int>>& matches) {
         set<int>w,l;
-        map<int,int>mpforW,mpforL;
+        unordered_map<int,int>mpforW,mpforL;
         for(auto i:matches){
             mpforW[i[0]]++;
             mpforL[i[1]]++;
