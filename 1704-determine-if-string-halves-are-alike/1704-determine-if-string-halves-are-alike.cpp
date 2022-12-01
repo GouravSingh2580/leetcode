@@ -2,7 +2,7 @@ class Solution {
 public:
     bool halvesAreAlike(string s) {
         string ss="aeiouAEIOU";
-        map<char,int>mp;
+        unordered_map<char,int>mp;
         for(auto i:ss) mp[i]++;
         
         int c1=0,c2=0;
