@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int dp[1001];
+    int dp[46];
     int climbStairs(int n) {
         if(n<=2) return dp[n]=n;
         
