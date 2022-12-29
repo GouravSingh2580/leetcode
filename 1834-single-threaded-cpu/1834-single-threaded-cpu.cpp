@@ -3,7 +3,7 @@ public:
     vector<int> getOrder(vector<vector<int>>& tasks) {
         int n = tasks.size();
         
-        vector<array<int, 3>> sortedTasks;
+        vector<vector<int>> sortedTasks;
         
         for(int i = 0; i<n; i++) {
             int start_time = tasks[i][0];
