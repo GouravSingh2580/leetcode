@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool sidhi(string s){
+    bool sidhi(string &s){
         string t=s;
         sort(s.begin(),s.end());
         return t==s;
