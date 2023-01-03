@@ -6,7 +6,7 @@ public:
         return t==s;
     }
     int minDeletionSize(vector<string>& strs) {
-        map<int,vector<char>>v;
+        unordered_map<int,vector<char>>v;
         for(auto i:strs){
             int c=0;
             for(auto j:i){
