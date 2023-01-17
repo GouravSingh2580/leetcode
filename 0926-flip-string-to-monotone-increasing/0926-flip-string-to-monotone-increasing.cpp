@@ -4,7 +4,7 @@ public:
     int minFlipsMonoIncr(string S)
     {
         int count_flip = 0, count_one = 0;
-        for (auto i : S)
+        for (auto &i : S)
         { 
  //keep track of all one (we will use count_one in else condition if we need)  
 //if we want flip one into 0
