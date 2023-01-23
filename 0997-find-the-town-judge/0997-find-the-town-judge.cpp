@@ -13,8 +13,8 @@ class Solution {
 public:
     int findJudge(int n, vector<vector<int>>& trust) {
         if(n==1) return 1;
-        map<int,int>mp;
-        map<int,vector<int>>dp;
+        unordered_map<int,int>mp;
+        unordered_map<int,vector<int>>dp;
         for(auto &i:trust){
             mp[i[0]]++;
             dp[i[1]].push_back(i[0]);
